@@ -1,0 +1,24 @@
+{% load static %}
+{% block head %}
+  <title>MosaicSearch</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+  <link rel="icon" type="image/png" href="{% static 'metasearch/application_icon_minimized.png' %}">
+{% endblock %}
+{% block body %}
+  <link rel="stylesheet" type="text/css" href="{% static 'metasearch/style.css' %}">
+  
+  <div class="logo_part">
+    <a href="{% url 'metasearch:index' %}">
+      <img class="logo_img" src="{% static 'metasearch/logo.png' %}"/>
+    </a>
+  </div>
+  <form method="get" action="{% url 'metasearch:search' %}?query={{query}}">
+    <div class="search_form_00">
+    
+      {{form}}
+      <input type="submit" value="search">
+    
+    </div>
+  </form>
+
+{% endblock %}

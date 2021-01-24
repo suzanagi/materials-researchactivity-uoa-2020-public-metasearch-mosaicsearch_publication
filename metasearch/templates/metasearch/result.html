@@ -1,0 +1,53 @@
+{% load static %}
+{% block head %}
+  <title>MosaicSearch - {{ query }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+  <link rel="icon" type="image/png" href="{% static 'metasearch/application_icon_minimized.png' %}">
+{% endblock %}
+{% block body %}
+  <link rel="stylesheet" type="text/css" href="{% static 'metasearch/style.css' %}">
+    
+  <div class="logo_part">
+    <a href="{% url 'metasearch:index' %}">
+      <img class="logo_img" src="{% static 'metasearch/logo.png' %}"/>
+    </a>
+  </div>
+  <form method="get" action="{% url 'metasearch:search' %}?query={{query}}">
+    <div class="search_form_00">
+    
+      {{form}}
+      <input type="submit" value="search">
+    
+    </div>
+  </form>
+  <dif class="results_part">
+    {% if search_results %}
+      <ul class="sample1">
+      {% for search_result in search_results %}
+          <li>
+            <div class="engines">
+              {{ search_result.engine }}
+            </div> 
+            <div class="dash_line">
+              <ul class="headline">
+                <li class="title">
+                  <a href="{{ search_result.get_url }}" target="_blank">
+                    {{ search_result.title }}
+                  </a>
+                </li>
+                <li class="domain">
+                  Domain: {{ search_result.get_domain }}
+                </li>
+              </ul>
+            </div>
+            <div class=snippet>
+              {{search_result.get_abstract}}
+            </div>
+          </li>
+      {% endfor %}
+      </ul>
+    {% else %}
+      <p>No results could be retrieved.</p>
+    {% endif %}
+  </dif>
+{% endblock %}

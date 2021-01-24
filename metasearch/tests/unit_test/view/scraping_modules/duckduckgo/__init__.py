@@ -1,0 +1,1 @@
+from metasearch.tests.unit_test.view.scraping_modules.duckduckgo.test_duckduckgo_search_module import SearchModuleTests

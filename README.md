@@ -10,9 +10,9 @@ Summary of the implementation of this system and the evaluation might be publish
 ## Requirements before running the application
   Before running the application on your own server or local environment, there are two requirements you need to prepare.
   1. Type the following command right under the MosaicSearchForPublication/ directory.
-  '''
+  ~~~
   python DjangoMetasearch/get_random_secret_key.py > DjangoMetasearch/local_settings.py
-  '''
+  ~~~
 
   2. Acquire API keys for Google Search API and Yandex.XML. Your obtained keys should be stored in the files: google_api_info.py and yandex_api_info.py under metasearch/search_modules/api_keys.
 

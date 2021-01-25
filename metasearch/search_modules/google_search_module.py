@@ -5,7 +5,7 @@ import json
 from time import sleep
 from googleapiclient.discovery import build
 from metasearch.models import ResultItem
-from metasearch.search_modules.api_keys import api_key, api_id
+from metasearch.search_modules.api_keys.google_api_info import api_key, api_id
 
 GOOGLE_API_KEY = api_key
 CUSTOM_SEARCH_ENGINE_ID = api_id
